@@ -19,7 +19,7 @@ const todoReducer = (state = initialState, action = {})=>{
 }
 
 
-const todos = todoReducer();
+let todos = todoReducer();
 
 const newTodo = {
     id:2,

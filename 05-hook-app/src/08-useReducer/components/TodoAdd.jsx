@@ -26,7 +26,7 @@ export const TodoAdd = ({onNewTodo}) => {
 
   return (
     <>
-        <form onSubmit={OnFormSubmit}>
+        <form onSubmit={onFormSubmit}>
             <input
                 type = "text"
                 placeholder='Que hay que hacer?'
