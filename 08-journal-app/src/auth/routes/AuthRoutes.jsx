@@ -6,10 +6,10 @@ import { LoginPage, RegisterPage } from "../pages"
 
 export const AuthRoutes = () => {
 
-  const {} = useSelector(state => state.auth);
+  const {status} = useSelector(state => state.auth);
 
 
-  if(statues === 'checking') {
+  if(status === 'checking') {
     return <CheckingAuth />
   }
 
