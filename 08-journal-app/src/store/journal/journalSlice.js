@@ -40,7 +40,10 @@ export const journalSlice = createSlice({
         },
         updateNote: (state, action)=>{
             state.isSaving = false;
-            state.nodes = state.notes.map( note => {
+
+
+
+            state.notes = state.notes.map( note => {
                 if(note.id === action.payload.id){
                     return action.payload;
 
@@ -49,7 +52,7 @@ export const journalSlice = createSlice({
                 return note;
             } )
 
-            state.messageSaved = `${action.payload.title} actualizada correctamente`;
+            state.messageSaved = `${action.payload.title}, actualizada correctamente`;
         },
         deleteNote:( state, action) =>{
             state.active = null;

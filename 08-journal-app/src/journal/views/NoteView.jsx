@@ -8,20 +8,16 @@ import 'sweetalert2/dist/sweetalert2.css';
 
 import { useForm } from '../../hooks/useForm';
 import { ImageGallery } from '../components'
-import { setActiveNote, startDeletingNote, creatingNewNote, startUploadingFiles } from '../../store/journal';
+import { setActiveNote, startDeletingNote, creatingNewNote, startUploadingFiles, startSavingNote } from '../../store/journal';
 
 
 export const NoteView = () => {
 
     const dispatch = useDispatch();
     const { active:note, messageSaved, isSaving } = useSelector( state => state.journal );
-
     const { body, title, date, onInputChange, formState } = useForm( note );
-
     const dateString = useMemo(() => {
         const newDate = new Date( date );
-
-        console.log(newDate)
         return newDate.toUTCString();
     }, [date])
 
@@ -40,7 +36,7 @@ export const NoteView = () => {
     
 
     const onSaveNote = () => {
-        dispatch( creatingNewNote() );
+        dispatch( startSavingNote() );
     }
 
     const onFileInputChange = ({ target }) => {

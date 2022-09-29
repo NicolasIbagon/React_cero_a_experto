@@ -15,8 +15,10 @@ export const NoteView = () => {
 
     const dispatch = useDispatch();
     const { active:note, messageSaved, isSaving } = useSelector( state => state.journal );
-
+    console.log(note)
     const { body, title, date, onInputChange, formState } = useForm( note );
+
+    console.log(date)
 
     const dateString = useMemo(() => {
         const newDate = new Date( date );
