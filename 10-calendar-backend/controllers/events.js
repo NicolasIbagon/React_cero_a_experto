@@ -10,7 +10,7 @@ const getEventos = async(req, res = response) => {
 
     res.json({
         ok:true,
-        msg: eventos
+        evento: eventos
     })
 }
 
@@ -108,6 +108,8 @@ const eliminarEvento = async(req, res = response) => {
         }
 
         if(evento.user.toString() !== uid){
+            console.log(evento.user.toString())
+            console.log(uid)
             return res.status(401).json({
                 ok:false,
                 msg: 'No tiene privilegio de eliminar este envento'
@@ -121,12 +123,11 @@ const eliminarEvento = async(req, res = response) => {
         })
     } catch (error) {
         console.log(error)
+        res.status(500).json({
+            ok: false,
+            msag: 'Hable con el admin'
+        })
     }
-
-    res.json({
-        ok:true,
-        msg: 'eliminarEvento'
-    })
 }
 
 
